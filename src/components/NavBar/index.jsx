@@ -1,9 +1,9 @@
 import React from 'react';
-import "./index.css";
+import './index.css';
 
 export default function() {
   return (
-    <ul className="NavBar">
+    <ul className='NavBar'>
       <li>Proxies</li>
       <li>Github</li>
     </ul>

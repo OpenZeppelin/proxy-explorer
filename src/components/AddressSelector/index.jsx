@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { DispatchContext, Web3Context } from '../../contexts';
 import { changeTargetAddress } from '../../actions';
-import "../styles/Selector.css";
+import '../styles/Selector.css';
 
 export default function ({ defaultAddress }) {
   const [ errorMessage, setErrorMessage ] = useState('');
@@ -21,11 +21,11 @@ export default function ({ defaultAddress }) {
   };
 
   return (
-    <div className="FormField">
+    <div className='FormField'>
       <label>Proxy:</label>
-      <div className="FormInput">
+      <div className='FormInput'>
         <input type='text' defaultValue={defaultAddress} onChange={handleChange} />
-        <p className="ErrorMsg">{errorMessage}</p>
+        <p className='ErrorMsg'>{errorMessage}</p>
       </div>
     </div>
   );

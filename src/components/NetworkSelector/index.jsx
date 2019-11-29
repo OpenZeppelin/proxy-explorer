@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { DispatchContext } from '../../contexts';
-import "../styles/Selector.css";
+import '../styles/Selector.css';
 import { changeNetwork } from '../../actions';
 
 export default function ({ defaultNetwork }) {
@@ -12,9 +12,9 @@ export default function ({ defaultNetwork }) {
   };
 
   return (
-    <div className="FormField">
+    <div className='FormField'>
       <label>Network:</label>
-      <div className="FormInput">
+      <div className='FormInput'>
         <select defaultValue={defaultNetwork} onChange={handleChange}>
           <option value='mainnet'>Mainnet</option>
           <option value='rinkeby'>Rinkeby</option>

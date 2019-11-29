@@ -35,11 +35,11 @@ function App() {
   return (
     <DispatchContext.Provider value={ dispatch }>
       <Web3Context.Provider value={ web3 }>
-        <div className="Wrapper">
+        <div className='Wrapper'>
           <NavBar />
           <div className='Container'>
             <h1>OpenZeppelin Proxy Explorer</h1>
-            <div className="Form">
+            <div className='Form'>
               <NetworkSelector defaultNetwork={ INITIAL_STATE.network }/>
               <AddressSelector defaultAddress={ INITIAL_STATE.targetAddress } />
             </div>
