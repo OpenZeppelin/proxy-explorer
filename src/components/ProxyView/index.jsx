@@ -6,7 +6,11 @@ function slotToAddress(slot) {
 }
 
 function getLink(networkName, value) {
-  return 'http://example.com';
+  if (networkName === 'mainnet') {
+    return `https://etherscan.io/address/${value}`;
+  } else {
+    return `https://${networkName}.etherscan.io/address/${value}`;
+  }
 }
 
 export default function ({ implSlot, adminSlot, networkName }) {

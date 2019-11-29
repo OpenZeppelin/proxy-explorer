@@ -3,7 +3,7 @@ import { Web3Context } from '../../contexts';
 import ProxyView from '../ProxyView';
 import './index.css';
 
-export default function ({ proxyAddress }) {
+export default function ({ proxyAddress, networkName }) {
   const web3 = useContext(Web3Context);
 
   const [ proxyData, setProxyData ] = useState(null);
@@ -42,5 +42,5 @@ export default function ({ proxyAddress }) {
     return (<div className='NotProxy'>This does not look like a proxy</div>);
   }
 
-  return (<ProxyView implSlot={ proxyData.implSlot } adminSlot={ proxyData.adminSlot } />);
+  return (<ProxyView implSlot={ proxyData.implSlot } adminSlot={ proxyData.adminSlot } networkName={ networkName } />);
 }

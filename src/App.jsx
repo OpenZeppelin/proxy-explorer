@@ -43,7 +43,7 @@ function App() {
               <NetworkSelector defaultNetwork={ INITIAL_STATE.network }/>
               <AddressSelector defaultAddress={ INITIAL_STATE.targetAddress } />
             </div>
-            { targetAddress !== null && <ProxyInspector proxyAddress={ targetAddress } /> }
+            { targetAddress !== null && <ProxyInspector proxyAddress={ targetAddress } networkName= { network } /> }
           </div>
         </div>
       </Web3Context.Provider>
