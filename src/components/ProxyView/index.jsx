@@ -25,7 +25,7 @@ function ProxyViewItem({ label, value, networkName }) {
   return (
     <div className="ProxyViewItem">
       <span className="Label">{label}:</span>
-      <a target="_blank" href={getLink(networkName, value)} className="Address">{value}</a>
+      <a target="_blank" rel="noopener noreferrer" href={getLink(networkName, value)} className="Address">{value}</a>
     </div>
   );
 }
