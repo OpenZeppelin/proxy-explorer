@@ -1,0 +1,20 @@
+.ProxyView {
+  text-align: left;
+  width: 100%;
+}
+
+.ProxyViewItem {
+  margin: 20px 0;
+}
+
+.Label {
+  display: block;
+}
+
+.Address {
+  display: block;
+  font-size: 120%;
+  font-family: 'Courier New', Courier, monospace;
+  text-decoration: none;
+  color: inherit;
+}

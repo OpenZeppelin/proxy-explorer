@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { DispatchContext } from '../../contexts';
+import "../../styles/Selector.css";
 
 export default function ({ defaultNetwork }) {
   const dispatch = useContext(DispatchContext);
@@ -10,12 +11,14 @@ export default function ({ defaultNetwork }) {
   };
 
   return (
-    <div>
+    <div className="FormField">
       <label>Network:</label>
-      <select defaultValue={defaultNetwork} onChange={handleChange}>
-        <option value='mainnet'>Mainnet</option>
-        <option value='rinkeby'>Rinkeby</option>
-      </select>
+      <div className="FormInput">
+        <select defaultValue={defaultNetwork} onChange={handleChange}>
+          <option value='mainnet'>Mainnet</option>
+          <option value='rinkeby'>Rinkeby</option>
+        </select>
+      </div>
     </div>
   );
 }

@@ -1,3 +1,16 @@
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  align-items: center;
+  height: 100vh;
+}
+
+.NavBar {
+  height: 50px;
+  width: 100%;
+}
+
 .Container {
   display: flex;
   flex-direction: column;
@@ -7,4 +20,16 @@
   align-content: stretch;
 
   text-align: center;
+  width: 600px;
+  min-height: 400px;
+  background-color: #fff;
+
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.Form {
+  width: 100%;
+  text-align: left;
+  margin: 20px 0 20px 0;
 }

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { DispatchContext, Web3Context } from '../../contexts';
+import "../../styles/Selector.css";
 
 export default function ({ defaultAddress }) {
   const [ errorMessage, setErrorMessage ] = useState('');
@@ -13,20 +14,18 @@ export default function ({ defaultAddress }) {
       setErrorMessage('');
       dispatch({ type: 'changeTargetAddress', value: input })
     } else {
-      setErrorMessage('invalid address :(');
+      setErrorMessage('Invalid address');
       dispatch({ type: 'changeTargetAddress', value: null })
     }
   };
 
   return (
-    <div>
-      <div>
-        <label>Proxy:</label>
+    <div className="FormField">
+      <label>Proxy:</label>
+      <div className="FormInput">
         <input type='text' defaultValue={defaultAddress} onChange={handleChange} />
+        <p className="ErrorMsg">{errorMessage}</p>
       </div>
-      <p>
-        {errorMessage}
-      </p>
     </div>
   );
 }

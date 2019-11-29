@@ -1,4 +1,29 @@
 .FormField {
-  max-width: 600px;
+  width: 100%;
   text-align: left;
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+.FormField label {
+  display: inline-block;
+  width: 80px;
+  vertical-align: top;
+}
+
+.FormField select {
+  width: 150px;
+}
+
+.FormField input {
+  width: 320px;
+}
+
+.FormInput {
+  display: inline-block;
+}
+
+.ErrorMsg {
+  color: darkred;  
+  margin: 5px 0;
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Web3Context } from '../../contexts';
 import ProxyView from '../ProxyView';
+import "./index.css";
 
 export default function ({ proxyAddress }) {
   const web3 = useContext(Web3Context);
@@ -34,11 +35,11 @@ export default function ({ proxyAddress }) {
   }, [web3, proxyAddress]);
 
   if (proxyData === null) {
-    return (<span> 'loading' </span>);
+    return (<div className="Loading">Loading...</div>);
   }
 
   if (!proxyData.isProxy) {
-    return (<span> 'not a proxy' </span>);
+    return (<div className="NotProxy">This does not look like a proxy</div>);
   }
 
   return (<ProxyView implSlot={ proxyData.implSlot } adminSlot={ proxyData.adminSlot } />);
