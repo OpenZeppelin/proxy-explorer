@@ -10,9 +10,12 @@ export default function ({ defaultNetwork }) {
   };
 
   return (
-    <select defaultValue={defaultNetwork} onChange={handleChange}>
-      <option value='mainnet'>Mainnet</option>
-      <option value='rinkeby'>Rinkeby</option>
-    </select>
+    <div>
+      <label>Network:</label>
+      <select defaultValue={defaultNetwork} onChange={handleChange}>
+        <option value='mainnet'>Mainnet</option>
+        <option value='rinkeby'>Rinkeby</option>
+      </select>
+    </div>
   );
 }

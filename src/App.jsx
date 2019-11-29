@@ -32,17 +32,11 @@ function App() {
   return (
     <DispatchContext.Provider value={ dispatch }>
       <Web3Context.Provider value={ web3 }>
-        <div>
+        <div className='Container'>
           <h1>OpenZeppelin Proxy Explorer</h1>
-          <div>
-            <NetworkSelector defaultNetwork={ INITIAL_STATE.network }/>
-          </div>
-          <div>
-            <AddressSelector defaultAddress={ INITIAL_STATE.targetAddress } />
-          </div>
-          <div>
-            { targetAddress !== null && <ProxyInspector proxyAddress={ targetAddress } /> }
-          </div>
+          <NetworkSelector defaultNetwork={ INITIAL_STATE.network }/>
+          <AddressSelector defaultAddress={ INITIAL_STATE.targetAddress } />
+          { targetAddress !== null && <ProxyInspector proxyAddress={ targetAddress } /> }
         </div>
       </Web3Context.Provider>
     </DispatchContext.Provider>

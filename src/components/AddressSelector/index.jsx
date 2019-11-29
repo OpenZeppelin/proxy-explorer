@@ -19,10 +19,14 @@ export default function ({ defaultAddress }) {
   };
 
   return (
-    <>
-      <span> Proxy: </span>
-      <input type='text' defaultValue={defaultAddress} onChange={handleChange} />
-      <span> {errorMessage} </span>
-    </>
+    <div>
+      <div>
+        <label>Proxy:</label>
+        <input type='text' defaultValue={defaultAddress} onChange={handleChange} />
+      </div>
+      <p>
+        {errorMessage}
+      </p>
+    </div>
   );
 }
