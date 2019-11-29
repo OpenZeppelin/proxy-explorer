@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Web3Context } from './contexts';
-import ProxyView from './ProxyView';
+import { Web3Context } from '../../contexts';
+import ProxyView from '../ProxyView';
 
 export default function ({ proxyAddress }) {
   const web3 = useContext(Web3Context);

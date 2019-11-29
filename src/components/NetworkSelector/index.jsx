@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DispatchContext } from './contexts';
+import { DispatchContext } from '../../contexts';
 
 export default function ({ defaultNetwork }) {
   const dispatch = useContext(DispatchContext);

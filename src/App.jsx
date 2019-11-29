@@ -1,9 +1,9 @@
 import React, { useReducer } from 'react';
 import './App.css';
 import { DispatchContext, Web3Context } from './contexts';
-import NetworkSelector from './NetworkSelector';
-import AddressSelector from './AddressSelector';
-import ProxyInspector from './ProxyInspector';
+import NetworkSelector from './components/NetworkSelector';
+import AddressSelector from './components/AddressSelector';
+import ProxyInspector from './components/ProxyInspector';
 
 import { useWeb3Network } from '@openzeppelin/network/react';
 
@@ -27,19 +27,16 @@ function App() {
   const [ state, dispatch ] = useReducer(reducer, INITIAL_STATE);
   const { targetAddress, network } = state;
 
-  const { networkId, networkName, providerName, lib: web3 } = useWeb3Network(`https://${network}.infura.io/v3/${infuraProjectId}`);
+  const { lib: web3 } = useWeb3Network(`https://${network}.infura.io/v3/${infuraProjectId}`);
 
   return (
     <DispatchContext.Provider value={ dispatch }>
       <Web3Context.Provider value={ web3 }>
-        <div className="App">
+        <div>
           <h1>OpenZeppelin Proxy Explorer</h1>
           <div>
             <NetworkSelector defaultNetwork={ INITIAL_STATE.network }/>
           </div>
-          <div>Network: {networkId ? `${networkId} – ${networkName}` : 'No connection'}</div>
-          <div>State network: {network}</div>
-          <div>Provider: {providerName}</div>
           <div>
             <AddressSelector defaultAddress={ INITIAL_STATE.targetAddress } />
           </div>

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { DispatchContext, Web3Context } from './contexts';
+import { DispatchContext, Web3Context } from '../../contexts';
 
 export default function ({ defaultAddress }) {
   const [ errorMessage, setErrorMessage ] = useState('');
