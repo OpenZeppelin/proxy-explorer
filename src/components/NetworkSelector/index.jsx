@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { DispatchContext } from '../../contexts';
-import "../../styles/Selector.css";
+import "../styles/Selector.css";
 import { changeNetwork } from '../../actions';
 
 export default function ({ defaultNetwork }) {

@@ -1,12 +1,15 @@
 import './App.css';
 import React, { useReducer } from 'react';
+
+import { useWeb3Network } from '@openzeppelin/network/react';
+
 import { DispatchContext, Web3Context } from './contexts';
+import { CHANGE_TARGET_ADDRESS, CHANGE_NETWORK } from './actions';
+
+import NavBar from './components/NavBar';
 import NetworkSelector from './components/NetworkSelector';
 import AddressSelector from './components/AddressSelector';
 import ProxyInspector from './components/ProxyInspector';
-import NavBar from './components/NavBar';
-import { CHANGE_TARGET_ADDRESS, CHANGE_NETWORK } from './actions';
-import { useWeb3Network } from '@openzeppelin/network/react';
 
 const INFURA_PROJECT_ID = 'c3422181d0594697a38defe7706a1e5b';
 const ZEP_TOKEN_ADDRESS = '0x00fdae9174357424a78afaad98da36fd66dd9e03';

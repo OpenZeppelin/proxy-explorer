@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { DispatchContext, Web3Context } from '../../contexts';
 import { changeTargetAddress } from '../../actions';
-import "../../styles/Selector.css";
+import "../styles/Selector.css";
 
 export default function ({ defaultAddress }) {
   const [ errorMessage, setErrorMessage ] = useState('');
