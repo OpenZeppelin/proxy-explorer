@@ -1,14 +1,19 @@
 .NavBar {
   list-style: none;
   text-align: right;
-  box-sizing: content-box;
+  box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 0 20px 0 0;
 }
 
 .NavBar > li {
   box-sizing: content-box;
   display: inline-block;
   width: 60px;
-  padding: 10px 20px;
+  padding: 10px 10px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
