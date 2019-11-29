@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { DispatchContext, Web3Context } from '../../contexts';
+import { changeTargetAddress } from '../../actions';
 import "../../styles/Selector.css";
 
 export default function ({ defaultAddress }) {
@@ -12,10 +13,10 @@ export default function ({ defaultAddress }) {
     const input = event.target.value;
     if (web3.utils.isAddress(input)) {
       setErrorMessage('');
-      dispatch({ type: 'changeTargetAddress', value: input })
+      dispatch(changeTargetAddress(input));
     } else {
       setErrorMessage('Invalid address');
-      dispatch({ type: 'changeTargetAddress', value: null })
+      dispatch(changeTargetAddress(null));
     }
   };
 

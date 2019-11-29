@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { DispatchContext } from '../../contexts';
 import "../../styles/Selector.css";
+import { changeNetwork } from '../../actions';
 
 export default function ({ defaultNetwork }) {
   const dispatch = useContext(DispatchContext);
 
   const handleChange = (event) => {
     const input = event.target.value;
-    dispatch({ type: 'changeNetwork', value: input })
+    dispatch(changeNetwork(input));
   };
 
   return (
