@@ -1,11 +1,11 @@
 import React from 'react';
 import './index.css';
 
-function slotToAddress(slot) {
+function slotToAddress(slot: string): string {
   return '0x' + slot.substring(26);
 }
 
-function getLink(networkName, value) {
+function getLink(networkName: string, value: string) {
   if (networkName === 'mainnet') {
     return `https://etherscan.io/address/${value}`;
   } else {
@@ -13,7 +13,8 @@ function getLink(networkName, value) {
   }
 }
 
-export default function ({ implSlot, adminSlot, networkName }) {
+type ProxyViewProps = { implSlot: string, adminSlot:string, networkName: string };
+export default function ({ implSlot, adminSlot, networkName }: ProxyViewProps) {
   const implAddress = slotToAddress(implSlot);
   const adminAddress = slotToAddress(adminSlot);
 
@@ -25,7 +26,8 @@ export default function ({ implSlot, adminSlot, networkName }) {
   );
 }
 
-function ProxyViewItem({ label, value, networkName }) {
+type ProxyViewItemProps = { label: string, value:string, networkName: string };
+function ProxyViewItem({ label, value, networkName }: ProxyViewItemProps) {
   return (
     <div className='ProxyViewItem'>
       <span className='Label'>{label}:</span>
