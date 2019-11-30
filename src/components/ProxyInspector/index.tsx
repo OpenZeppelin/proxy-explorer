@@ -7,7 +7,10 @@ type ProxyInspectorProps = { proxyAddress: string, networkName: string };
 export default function ({ proxyAddress, networkName }: ProxyInspectorProps) {
   const web3 = useContext(Web3Context)!;
 
-  type ProxyData = { isProxy: boolean, implSlot?: string, adminSlot?: string };
+  type ProxyData =
+    | { isProxy: false }
+    | { isProxy: true, implSlot: string, adminSlot: string };
+
   const [ proxyData, setProxyData ] = useState<ProxyData | null>(null);
 
   const OLD_IMPL_SLOT = '0x7050c9e0f4ca769c69bd3a8ef740bc37934f8e2c036e5a723fd8ee048ed3f8c3';
@@ -44,6 +47,5 @@ export default function ({ proxyAddress, networkName }: ProxyInspectorProps) {
     return (<div className='NotProxy'>This does not look like a proxy</div>);
   }
 
-  // When isProxy is true, implSlot and adminSlot are not null
-  return (<ProxyView implSlot={ proxyData.implSlot! } adminSlot={ proxyData.adminSlot! } networkName={ networkName } />);
+  return (<ProxyView implSlot={ proxyData.implSlot } adminSlot={ proxyData.adminSlot } networkName={ networkName } />);
 }

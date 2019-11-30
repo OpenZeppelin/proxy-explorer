@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { DispatchContext } from '../../contexts';
 import '../styles/Selector.css';
-import { changeNetwork } from '../../actions';
 
 type NetworkSelectorProps = { defaultNetwork: string };
 export default function ({ defaultNetwork }: NetworkSelectorProps) {
@@ -9,7 +8,7 @@ export default function ({ defaultNetwork }: NetworkSelectorProps) {
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const input = event.target.value;
-    dispatch(changeNetwork(input));
+    dispatch({ type: 'changeNetwork', value: input });
   };
 
   return (
