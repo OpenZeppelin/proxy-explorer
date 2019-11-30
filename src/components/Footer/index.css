@@ -1,0 +1,13 @@
+.Footer {
+  list-style: none;
+  text-align: right;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 20px 0 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 90%;
+}

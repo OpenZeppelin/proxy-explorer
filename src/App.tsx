@@ -10,6 +10,7 @@ import NavBar from './components/NavBar';
 import NetworkSelector from './components/NetworkSelector';
 import AddressSelector from './components/AddressSelector';
 import ProxyInspector from './components/ProxyInspector';
+import Footer from './components/Footer';
 
 const INFURA_PROJECT_ID = 'c3422181d0594697a38defe7706a1e5b';
 const ZEP_TOKEN_ADDRESS = '0x00fdae9174357424a78afaad98da36fd66dd9e03';
@@ -45,6 +46,8 @@ function App() {
             </div>
             { targetAddress !== null && <ProxyInspector proxyAddress={ targetAddress } networkName= { network } /> }
           </div>
+          <hr/>
+          <Footer />
         </div>
       </Web3Context.Provider>
     </DispatchContext.Provider>
