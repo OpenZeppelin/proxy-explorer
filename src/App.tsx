@@ -4,7 +4,7 @@ import React, { useReducer } from 'react';
 import { useWeb3Network } from '@openzeppelin/network/react';
 
 import { DispatchContext, Web3Context } from './contexts';
-import { CHANGE_TARGET_ADDRESS, CHANGE_NETWORK } from './actions';
+import { Action } from './actions';
 
 import NavBar from './components/NavBar';
 import NetworkSelector from './components/NetworkSelector';
@@ -13,16 +13,16 @@ import ProxyInspector from './components/ProxyInspector';
 
 const INFURA_PROJECT_ID = 'c3422181d0594697a38defe7706a1e5b';
 const ZEP_TOKEN_ADDRESS = '0x00fdae9174357424a78afaad98da36fd66dd9e03';
-const INITIAL_STATE = { targetAddress: ZEP_TOKEN_ADDRESS, network: 'mainnet' };
 
-function reducer(state, action) {
+type AppState = { targetAddress: string, network: string };
+const INITIAL_STATE: AppState = { targetAddress: ZEP_TOKEN_ADDRESS, network: 'mainnet' };
+
+function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
-    case CHANGE_TARGET_ADDRESS:
+    case 'changeTargetAddress':
       return { ...state, targetAddress: action.value };
-    case CHANGE_NETWORK:
+    case 'changeNetwork':
       return { ...state, network: action.value };
-    default:
-      throw new Error(`Unknown action: '${action.type}'`);
   }
 }
 

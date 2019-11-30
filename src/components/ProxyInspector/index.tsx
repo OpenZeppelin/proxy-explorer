@@ -3,10 +3,12 @@ import { Web3Context } from '../../contexts';
 import ProxyView from '../ProxyView';
 import './index.css';
 
-export default function ({ proxyAddress, networkName }) {
-  const web3 = useContext(Web3Context);
+type ProxyInspectorProps = { proxyAddress: string, networkName: string };
+export default function ({ proxyAddress, networkName }: ProxyInspectorProps) {
+  const web3 = useContext(Web3Context)!;
 
-  const [ proxyData, setProxyData ] = useState(null);
+  type ProxyData = { isProxy: boolean, implSlot?: string, adminSlot?: string };
+  const [ proxyData, setProxyData ] = useState<ProxyData | null>(null);
 
   const OLD_IMPL_SLOT = '0x7050c9e0f4ca769c69bd3a8ef740bc37934f8e2c036e5a723fd8ee048ed3f8c3';
   const OLD_ADMIN_SLOT = '0x10d6a54a4754c8869d6886b5f5d7fbfa5b4522237ea5c60d11bc4e7a1ff9390b';
@@ -42,5 +44,6 @@ export default function ({ proxyAddress, networkName }) {
     return (<div className='NotProxy'>This does not look like a proxy</div>);
   }
 
-  return (<ProxyView implSlot={ proxyData.implSlot } adminSlot={ proxyData.adminSlot } networkName={ networkName } />);
+  // When isProxy is true, implSlot and adminSlot are not null
+  return (<ProxyView implSlot={ proxyData.implSlot! } adminSlot={ proxyData.adminSlot! } networkName={ networkName } />);
 }
