@@ -3,13 +3,14 @@ import { DispatchContext, Web3Context } from '../../contexts';
 import { changeTargetAddress } from '../../actions';
 import '../styles/Selector.css';
 
-export default function ({ defaultAddress }) {
+type AddressSelectorProps = { defaultAddress: string };
+export default function ({ defaultAddress }: AddressSelectorProps) {
   const [ errorMessage, setErrorMessage ] = useState('');
 
-  const dispatch = useContext(DispatchContext);
-  const web3 = useContext(Web3Context);
+  const dispatch = useContext(DispatchContext)!;
+  const web3 = useContext(Web3Context)!;
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value;
     if (web3.utils.isAddress(input)) {
       setErrorMessage('');

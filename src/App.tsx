@@ -14,7 +14,7 @@ import ProxyInspector from './components/ProxyInspector';
 const INFURA_PROJECT_ID = 'c3422181d0594697a38defe7706a1e5b';
 const ZEP_TOKEN_ADDRESS = '0x00fdae9174357424a78afaad98da36fd66dd9e03';
 
-type AppState = { targetAddress: string, network: string };
+type AppState = { targetAddress: string | null, network: string };
 const INITIAL_STATE: AppState = { targetAddress: ZEP_TOKEN_ADDRESS, network: 'mainnet' };
 
 function reducer(state: AppState, action: Action): AppState {
@@ -41,7 +41,7 @@ function App() {
             <h1>OpenZeppelin Proxy Explorer</h1>
             <div className='Form'>
               <NetworkSelector defaultNetwork={ INITIAL_STATE.network }/>
-              <AddressSelector defaultAddress={ INITIAL_STATE.targetAddress } />
+              <AddressSelector defaultAddress={ INITIAL_STATE.targetAddress! } />
             </div>
             { targetAddress !== null && <ProxyInspector proxyAddress={ targetAddress } networkName= { network } /> }
           </div>
