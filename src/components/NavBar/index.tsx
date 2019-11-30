@@ -10,7 +10,8 @@ export default function() {
   );
 }
 
-function NavBarLink({ url, text }) {
+type NavBarLinkProps = { url: string, text: string };
+function NavBarLink({ url, text }: NavBarLinkProps) {
   return (
     <a target='_blank' rel='noopener noreferrer' href={url}>{text}</a>
   );
