@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Web3Context } from '../../contexts';
+import { Network } from '../../networks';
 import ProxyView from '../ProxyView';
 import './index.css';
 
-type ProxyInspectorProps = { proxyAddress: string, networkName: string };
-export default function ({ proxyAddress, networkName }: ProxyInspectorProps) {
+type ProxyInspectorProps = { proxyAddress: string, network: Network };
+export default function ({ proxyAddress, network }: ProxyInspectorProps) {
   const web3 = useContext(Web3Context)!;
 
   type ProxyData =
@@ -47,5 +48,5 @@ export default function ({ proxyAddress, networkName }: ProxyInspectorProps) {
     return (<div className='NotProxy'>This does not look like a proxy</div>);
   }
 
-  return (<ProxyView implSlot={ proxyData.implSlot } adminSlot={ proxyData.adminSlot } networkName={ networkName } />);
+  return (<ProxyView implSlot={ proxyData.implSlot } adminSlot={ proxyData.adminSlot } network={ network } />);
 }
