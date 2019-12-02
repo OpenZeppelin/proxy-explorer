@@ -1,9 +1,7 @@
 import React from 'react';
 import './index.css';
 
-function slotToAddress(slot: string): string {
-  return '0x' + slot.substring(26);
-}
+import { Proxy } from '../../proxy-inspector';
 
 function getLink(networkName: string, value: string) {
   if (networkName === 'mainnet') {
@@ -13,15 +11,12 @@ function getLink(networkName: string, value: string) {
   }
 }
 
-type ProxyViewProps = { implSlot: string, adminSlot:string, networkName: string };
-export default function ({ implSlot, adminSlot, networkName }: ProxyViewProps) {
-  const implAddress = slotToAddress(implSlot);
-  const adminAddress = slotToAddress(adminSlot);
-
+type ProxyViewProps = { proxy: Proxy, networkName: string };
+export default function ({ proxy, networkName }: ProxyViewProps) {
   return (
     <div className='ProxyView'>
-      <ProxyViewItem label='Implementation' value={implAddress} networkName={networkName} />
-      <ProxyViewItem label='Admin' value={adminAddress} networkName={networkName} />
+      <ProxyViewItem label='Implementation' value={proxy.implementation} networkName={networkName} />
+      <ProxyViewItem label='Admin' value={proxy.admin} networkName={networkName} />
     </div>
   );
 }

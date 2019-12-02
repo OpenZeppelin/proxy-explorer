@@ -13,10 +13,10 @@ export default function ({ defaultAddress }: AddressSelectorProps) {
     const input = event.target.value;
     if (web3.utils.isAddress(input)) {
       setErrorMessage('');
-      dispatch({ type: 'changeTargetAddress', value: input });
+      dispatch({ type: 'changeAddress', value: input });
     } else {
       setErrorMessage('Invalid address');
-      dispatch({ type: 'changeTargetAddress', value: null });
+      dispatch({ type: 'changeAddress', value: null });
     }
   };
 

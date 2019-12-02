@@ -9,19 +9,19 @@ import { Action } from './actions';
 import NavBar from './components/NavBar';
 import NetworkSelector from './components/NetworkSelector';
 import AddressSelector from './components/AddressSelector';
-import ProxyInspector from './components/ProxyInspector';
+import ProxyLoader from './components/ProxyLoader';
 import Footer from './components/Footer';
 
 const INFURA_PROJECT_ID = 'c3422181d0594697a38defe7706a1e5b';
 const ZEP_TOKEN_ADDRESS = '0x00fdae9174357424a78afaad98da36fd66dd9e03';
 
-type AppState = { targetAddress: string | null, network: string };
-const INITIAL_STATE: AppState = { targetAddress: ZEP_TOKEN_ADDRESS, network: 'mainnet' };
+type AppState = { address: string | null, network: string };
+const INITIAL_STATE: AppState = { address: ZEP_TOKEN_ADDRESS, network: 'mainnet' };
 
 function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
-    case 'changeTargetAddress':
-      return { ...state, targetAddress: action.value };
+    case 'changeAddress':
+      return { ...state, address: action.value };
     case 'changeNetwork':
       return { ...state, network: action.value };
   }
@@ -29,7 +29,7 @@ function reducer(state: AppState, action: Action): AppState {
 
 function App() {
   const [ state, dispatch ] = useReducer(reducer, INITIAL_STATE);
-  const { targetAddress, network } = state;
+  const { address, network } = state;
 
   const { lib: web3 } = useWeb3Network(`https://${network}.infura.io/v3/${INFURA_PROJECT_ID}`);
 
@@ -42,9 +42,9 @@ function App() {
             <h1>OpenZeppelin Proxy Explorer</h1>
             <div className='Form'>
               <NetworkSelector defaultNetwork={ INITIAL_STATE.network }/>
-              <AddressSelector defaultAddress={ INITIAL_STATE.targetAddress! } />
+              <AddressSelector defaultAddress={ INITIAL_STATE.address! } />
             </div>
-            { targetAddress !== null && <ProxyInspector proxyAddress={ targetAddress } networkName= { network } /> }
+            { address !== null && <ProxyLoader address={ address } networkName= { network } /> }
           </div>
           <hr/>
           <Footer />
