@@ -1,11 +1,10 @@
 const INFURA_PROJECT_ID = 'c3422181d0594697a38defe7706a1e5b';
 
-export enum NetworkId {
-  Mainnet,
-  Ropsten,
-  Rinkeby,
-  Kovan,
-};
+export type NetworkId =
+  | 'mainnet'
+  | 'ropsten'
+  | 'rinkeby'
+  | 'kovan';
 
 export type Network = {
   name: string;
@@ -14,22 +13,22 @@ export type Network = {
 };
 
 export const networks: { [key in NetworkId]: Network } = {
-  [ NetworkId.Mainnet ]: {
+  'mainnet': {
     name: 'Mainnet',
     query: `https://mainnet.infura.io/v3/${INFURA_PROJECT_ID}`,
     explorer: 'https://etherscan.io'
   },
-  [ NetworkId.Ropsten ]: {
+  'ropsten': {
     name: 'Ropsten',
     query: `https://ropsten.infura.io/v3/${INFURA_PROJECT_ID}`,
     explorer: 'https://ropsten.etherscan.io'
   },
-  [ NetworkId.Rinkeby ]: {
+  'rinkeby': {
     name: 'Rinkeby',
     query: `https://rinkeby.infura.io/v3/${INFURA_PROJECT_ID}`,
     explorer: 'https://rinkeby.etherscan.io'
   },
-  [ NetworkId.Kovan ]: {
+  'kovan': {
     name: 'Kovan',
     query: `https://kovan.infura.io/v3/${INFURA_PROJECT_ID}`,
     explorer: 'https://kovan.etherscan.io'

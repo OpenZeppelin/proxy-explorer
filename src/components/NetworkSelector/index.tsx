@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 import { DispatchContext } from '../../contexts';
 import '../styles/Selector.css';
 
-import { NetworkId, networks } from '../../networks';
+import { networks, NetworkId } from '../../networks';
 
 type NetworkSelectorProps = { defaultNetwork: NetworkId };
 export default function ({ defaultNetwork }: NetworkSelectorProps) {
   const dispatch = useContext(DispatchContext)!;
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const input = event.target.value;
+    const input = event.target.value as NetworkId;
     dispatch({ type: 'changeNetwork', value: networks[input] });
   };
 
@@ -19,7 +19,7 @@ export default function ({ defaultNetwork }: NetworkSelectorProps) {
       <div className='FormInput'>
         <select defaultValue={defaultNetwork} onChange={handleChange}>
           {Object.keys(networks).map(id =>
-            <option value={id}>{networks[id].name}</option>
+            <option value={id} key={id}>{networks[id as NetworkId].name}</option>
           )}
         </select>
       </div>
