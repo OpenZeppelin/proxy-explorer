@@ -4,7 +4,10 @@ export type NetworkId =
   | 'mainnet'
   | 'ropsten'
   | 'rinkeby'
-  | 'kovan';
+  | 'kovan'
+  | 'goerli'
+  | 'polygon'
+  | 'binance';
 
 export type Network = {
   name: string;
@@ -33,4 +36,19 @@ export const networks: { [key in NetworkId]: Network } = {
     query: `https://kovan.infura.io/v3/${INFURA_PROJECT_ID}`,
     explorer: 'https://kovan.etherscan.io'
   },
+  'goerli': {
+    name: 'Goerli',
+    query: `https://goerli.infura.io/v3/${INFURA_PROJECT_ID}`,
+    explorer: 'https://goerli.etherscan.io'
+  },
+  'polygon': {
+    name: 'Polygon',
+    query: `https://rpc-mainnet.matic.network/`,
+    explorer: `https://polygonscan.com`
+  },
+  'binance': {
+    name: 'Binance',
+    query: `https://bsc-dataseed.binance.org/`,
+    explorer: `https://bscscan.com/`,
+  }
 };
